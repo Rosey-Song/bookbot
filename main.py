@@ -6,7 +6,7 @@ def main():
     try:
         text = get_book_text(path_to_file)
     except FileNotFoundError:
-        print(f"Title {book_name} does not exist.")
+        return print(f"Title \"{book_name}\" does not exist.")
     word_count = get_num_words(text)
     letter_occurrences = get_letter_occurrences(text)
     print(f"{book_name} contains {word_count} words.")
