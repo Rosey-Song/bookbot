@@ -22,19 +22,17 @@ def get_book_text(path_to_file):
         return f.read()
 
 def get_letter_occurrences(text, sort=True):
-    def sort_letters_by_occurence(letters_dict={}):
-        sorted_letters = {}
-        order = sorted(letters_dict, key=letters_dict.get, reverse=True)
-        for letter in order:
-            sorted_letters[letter] = letters_dict[letter]
-        return sorted_letters
-
+    letters = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z'.split()
     output_letters = {}
-    letters = 'a A b B c C d D e E f F g G h H i I j J k K l L m M n N o O p P q Q r R s S t T u U v V w W x X y Y z Z'.split()
-    for x in range(0, len(letters), 2):
-        print(letters[x])
-        output_letters[letters[x]] = text.count(letters[x]) + text.count(letters[x + 1])
+    def sort_letters_by_occurence():
+        sorted_letters = {}
+        order = sorted(output_letters, key=output_letters.get, reverse=True)
+        for letter in order:
+            sorted_letters[letter] = output_letters[letter]
+        return sorted_letters
+    for x in range(len(letters)):
+        output_letters[letters[x]] = text.count(letters[x]) + text.count(letters[x].lwoer())
     
-    return output_letters if not sort else sort_letters_by_occurence(output_letters)
+    return output_letters if not sort else sort_letters_by_occurence()
 
 main()
